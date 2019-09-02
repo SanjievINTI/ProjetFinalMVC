@@ -21,8 +21,8 @@ public class Role implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idRole;
 	private String libelle;
-	@ManyToMany 
-	private Set <Utilisateur> listUtilisateur= new HashSet<>();
+	//@ManyToMany 
+	//private Set <Utilisateur> listUtilisateur= new HashSet<>();
 	
 	public Role() {
 		
@@ -44,12 +44,12 @@ public class Role implements Serializable {
 		this.libelle = libelle;
 	}
 
-	public Set<Utilisateur> getListUtilisateur() {
-		return listUtilisateur;
-	}
-
-	public void setListUtilisateur(Set<Utilisateur> listUtilisateur) {
-		this.listUtilisateur = listUtilisateur;
-	}
+//	public Set<Utilisateur> getListUtilisateur() {
+//		return listUtilisateur;
+//	}
+//
+//	public void setListUtilisateur(Set<Utilisateur> listUtilisateur) {
+//		this.listUtilisateur = listUtilisateur;
+//	}
 	
 }

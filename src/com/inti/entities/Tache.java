@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,8 +39,8 @@ public class Tache implements Serializable{
 	@ManyToOne 
 	@JoinColumn(name="id_tribunal")
 	private Tribunal tribunal;
-	@OneToMany
-	private Set<Phase> listPhase = new HashSet<>();
+	@OneToMany (mappedBy="tache",fetch=FetchType.EAGER)
+	private Set<Phase> listPhase = new HashSet<Phase>();
 	
 	public Tache() {	
 	}
