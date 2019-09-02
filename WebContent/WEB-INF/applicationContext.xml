@@ -25,7 +25,7 @@
 				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
 				</beans:prop>
 				<beans:prop key="hibernate.show_sql">true</beans:prop>
-				<beans:prop key="hibernate.hbm2ddl.auto">update
+				<beans:prop key="hibernate.hbm2ddl.auto">create
 				</beans:prop>
 			</beans:props>
 
@@ -38,6 +38,9 @@
 	<context:component-scan base-package="com.inti.dao.impl" />
 	<context:component-scan base-package="com.inti.service.impl" />
 	<context:component-scan base-package="com.inti.controller" />
+	<context:component-scan base-package="com.inti.entities" />
+	<context:component-scan base-package="com.inti.config" />
+	
 	<!-- Déclarer le gestionnaire de transactions pour permettre une utilisation 
 		de l'annotation @Transactional -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -45,6 +48,7 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<beans:property name="sessionFactory" ref="sessionFactory" />
 	</beans:bean>
+	
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
 

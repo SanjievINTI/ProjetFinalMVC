@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,11 +28,14 @@ public class Utilisateur implements Serializable {
 	private String email;
 	private String nomUtilisateur;
 	private String prenomUtilisateur;
+	@Column(unique= true)
+	private String username;
+	private String password;
 	
 	@ManyToMany (fetch= FetchType.EAGER)
 	@JoinTable (name="Profil",
-	joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"), inverseJoinColumns=
-	@JoinColumn(name="id_role",referencedColumnName="idRole"))
+	joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"),
+	inverseJoinColumns = @JoinColumn(name="id_role",referencedColumnName="idRole"))
 	private Set<Role> listRole=new HashSet<Role>();
 	@OneToMany(mappedBy="utilisateur",fetch=FetchType.EAGER)
 	private Set<Tache> listTache=new HashSet<Tache>();
@@ -74,7 +78,17 @@ public class Utilisateur implements Serializable {
 	public void setListTache(Set<Tache> listTache) {
 		this.listTache = listTache;
 	}
-	
-	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }

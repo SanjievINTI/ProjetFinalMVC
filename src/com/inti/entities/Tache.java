@@ -39,7 +39,7 @@ public class Tache implements Serializable{
 	@ManyToOne 
 	@JoinColumn(name="id_tribunal")
 	private Tribunal tribunal;
-	@OneToMany (mappedBy="tache",fetch=FetchType.EAGER)
+	@OneToMany (mappedBy="tache", fetch=FetchType.EAGER)
 	private Set<Phase> listPhase = new HashSet<Phase>();
 	
 	public Tache() {	
