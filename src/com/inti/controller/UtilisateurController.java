@@ -29,8 +29,8 @@ public Utilisateur findOne(@PathVariable("idUtilisateur") Long idUtilisateur) {
 }
 @RequestMapping(value="users", method = RequestMethod.POST)
 public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
-			utilisateurService.save(utilisateur);
-			return new Utilisateur ();
+	utilisateurService.save(utilisateur);
+	return new Utilisateur ();
 }
 @RequestMapping(value="users/{idUtilisateur}", method = RequestMethod.DELETE)
 public void deleteUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur) {
