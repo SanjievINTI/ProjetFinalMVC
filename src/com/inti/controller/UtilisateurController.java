@@ -19,24 +19,24 @@ public class UtilisateurController {
 @Autowired
 IUtilisateurService utilisateurService;
 
-@RequestMapping(value="utilisateurs", method = RequestMethod.GET)
+@RequestMapping(value="users", method = RequestMethod.GET)
 public List<Utilisateur> findAll(){
 	return utilisateurService.findAll(Utilisateur.class);
 }
-@RequestMapping(value="utilisateurs/{idUtilisateur}", method = RequestMethod.GET)
+@RequestMapping(value="users/{idUtilisateur}", method = RequestMethod.GET)
 public Utilisateur findOne(@PathVariable("idUtilisateur") Long idUtilisateur) {
 	return utilisateurService.findOne(Utilisateur.class,idUtilisateur);
 }
-@RequestMapping(value="utilisateurs", method = RequestMethod.POST)
+@RequestMapping(value="users", method = RequestMethod.POST)
 public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
 			utilisateurService.save(utilisateur);
 			return new Utilisateur ();
 }
-@RequestMapping(value="utilisateurs/{idUtilisateur}", method = RequestMethod.DELETE)
+@RequestMapping(value="users/{idUtilisateur}", method = RequestMethod.DELETE)
 public void deleteUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur) {
 	utilisateurService.remove(utilisateurService.findOne(Utilisateur.class, idUtilisateur));
 }
-@RequestMapping(value="utilisateurs/{idUtilisateur}", method= RequestMethod.PUT)
+@RequestMapping(value="users/{idUtilisateur}", method= RequestMethod.PUT)
 public Utilisateur updateUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur,@RequestBody Utilisateur utilisateur) {
 	Utilisateur currentUtilisateur = utilisateurService.findOne(Utilisateur.class,idUtilisateur);
 	currentUtilisateur.setNomUtilisateur(utilisateur.getNomUtilisateur());
