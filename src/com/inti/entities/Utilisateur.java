@@ -31,7 +31,7 @@ public class Utilisateur implements Serializable {
 	@Column(unique= true)
 	private String username;
 	private String password;
-	
+	private boolean enabled = true;
 	@ManyToMany (fetch= FetchType.EAGER)
 	@JoinTable (name="Profil",
 	joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"),
@@ -89,6 +89,12 @@ public class Utilisateur implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 }

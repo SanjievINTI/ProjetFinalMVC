@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.inti.entities.Utilisateur;
 import com.inti.service.interfaces.IUtilisateurService;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping(value = "/login")
 public class LoginController {
 	@Autowired
 	IUtilisateurService utilisateurService;
-	@CrossOrigin
 	@RequestMapping(value="/user", method=RequestMethod.GET)
 	public Utilisateur login(Principal principal) {
 		return utilisateurService.findOneByUsername(principal.getName());
